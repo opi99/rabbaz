@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opi99/forwardfw.git",
-                "reference": "c22df9ad5af636728d5dfaed75f772537bd05b2c"
+                "reference": "acbd5f6fa93a014e9a0f3c9e79df840045c81827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/c22df9ad5af636728d5dfaed75f772537bd05b2c",
-                "reference": "c22df9ad5af636728d5dfaed75f772537bd05b2c",
+                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/acbd5f6fa93a014e9a0f3c9e79df840045c81827",
+                "reference": "acbd5f6fa93a014e9a0f3c9e79df840045c81827",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "issues": "https://github.com/opi99/forwardfw/issues",
                 "source": "https://github.com/opi99/forwardfw/tree/master"
             },
-            "time": "2021-02-03T21:41:39+00:00"
+            "time": "2021-02-07T20:59:32+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
