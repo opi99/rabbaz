@@ -1,0 +1,12 @@
+<svg width="128" height="128" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="a" x1="103.05" x2="110.81" y1="122.15" y2="128.03" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+   <stop style="stop-color:#0ff" offset="0"/>
+   <stop style="stop-color:#0088a3;stop-opacity:.99733" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-99.467 -110.98)">
+  <rect x="101.25" y="119.74" width="30.606" height="16.339" rx="1.801" ry="1.801" style="fill:#b3b3b3;opacity:.97145"/>
+  <rect x="103.33" y="122.15" width="26.144" height="11.517" rx="0" ry="0" style="fill:url(#a);opacity:.97145"/>
+ </g>
+</svg>

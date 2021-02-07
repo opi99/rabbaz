@@ -1,0 +1,10 @@
+<svg width="128" height="128" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(-99.467 -110.98)">
+  <rect x="101.95" y="113.45" width="28.893" height="28.92" ry="2.271" style="fill:#ccc;opacity:.97145;stroke-width:0"/>
+  <rect x="104.69" y="139.44" width="24.541" height="1.4313" rx="2.0392" ry="2.0392" style="fill:#806600;opacity:.97145;stroke-width:0"/>
+  <g style="fill:#806600;opacity:.97145">
+   <path d="m115.74 131.34 2.0832 0.3159c2.0832 0.3159 10.168 7.4813 9.6184 7.9252l-0.48371 0.3907c-0.54959 0.44392-7.9389-7.4293-10.484-7.2088 0 0-0.90589-0.13017-1.5461 0.14511-1.3932 0.59908-5.4135 3.3743-8.53 7.1686l-0.60223-0.4082c-0.58479-0.39639 5.5756-8.5734 9.9445-8.3285z" style="color-rendering:auto;color:#000000;dominant-baseline:auto;fill:#806600;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;image-rendering:auto;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;shape-rendering:auto;solid-color:#000000;stop-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+  </g>
+  <rect x="112.06" y="130.55" width="7.589" height="1.1804" rx="2.0392" ry="2.0392" style="fill:#806600;opacity:.97145;stroke-width:0"/>
+ </g>
+</svg>

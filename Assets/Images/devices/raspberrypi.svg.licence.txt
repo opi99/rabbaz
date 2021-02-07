@@ -1,0 +1,2 @@
+The word mark "Raspberry Pi" and the logo is trademarked by the Raspberry Pi Foundation
+You need to follow the rules readable on https://www.raspberrypi.org/trademark-rules/

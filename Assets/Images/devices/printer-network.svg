@@ -1,0 +1,15 @@
+<svg width="128" height="128" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <radialGradient id="a" cx="125.26" cy="115.41" r="3.0215" gradientTransform="matrix(.0034783 1.6899 -1.3845 .0028498 284.91 -96.609)" gradientUnits="userSpaceOnUse">
+   <stop style="stop-color:#00a3ff" offset="0"/>
+   <stop style="stop-color:#006d11;stop-opacity:.35728" offset="1"/>
+  </radialGradient>
+ </defs>
+ <g transform="translate(-99.467 -110.98)">
+  <rect x="102.16" y="126.72" width="29.152" height="9.6002" style="fill:#ccc;opacity:.9;stroke-width:0"/>
+  <rect x="109.45" y="133.12" width="14.556" height="2.876" style="fill:#b3b3b3;opacity:.9;stroke-width:0"/>
+  <rect x="127.04" y="127.99" width="2.2751" height="1.5027" style="fill:#008000;opacity:.9;stroke-width:0"/>
+  <rect x="109.56" y="116.82" width="14.339" height="10.121" style="fill:#b3b3b3;opacity:.9"/>
+  <circle cx="126.83" cy="117.25" r="3.0215" style="fill:url(#a);opacity:.97145;stroke-width:0"/>
+ </g>
+</svg>
