@@ -1,0 +1,44 @@
+{
+    "name": "rabbaz/core",
+    "description": "Do Rabbaz in your house.",
+    "keywords": ["music"],
+    "homepage": "https://github.com/opi99/rabbaz",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Alexander Opitz",
+            "role": "Developer",
+            "homepage": "https://github.com/opi99"
+        }
+    ],
+    "support": {
+        "general": ""
+    },
+    "config": {
+        "bin-dir": "bin",
+        "platform": {
+            "php": "7.4.0"
+        },
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.4",
+        "forward/forwardfw": "@dev",
+        "twbs/bootstrap": "@beta",
+        "twig/twig": "^3.0"
+    },
+    "suggest": {
+    },
+    "replace": {
+        "rabbaz/core": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rabbaz\\Core\\": "Backend/Core"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+        }
+    }
+}
