@@ -1,0 +1,80 @@
+:root {
+    --c-bg: #040904;
+    --c-bg-o: #060E06;
+
+    --c-fg-a-1: #0D210D; /* Style a */
+    --c-fg-a-2: #173917; /* Style a */
+    --c-fg-a-5: #338033; /* Style a */
+    --c-fg-b-1: #0D1D21; /* Style b (hue of a1) */
+    --c-fg-b-5: #337080; /* Style b (hue of a5) */
+
+    --c-sh: #010501;
+    --c-sh-l: #0A4A0A;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #000;
+    background-image: conic-gradient(from 90deg at 0 90%, var(--c-fg-b-1), 90deg, var(--c-bg), 358deg, var(--c-fg-a-5));
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1;
+    }
+}
+h1 {
+    animation: fadeIn 3s ease-out forwards, neon 3s 3s infinite;
+    color: var(--c-sh);
+    filter: blur(0.01em);
+    font-size: 9vw;
+    font-weight: bold;
+    transform: skew(-15deg) rotate(-10deg);
+    text-shadow:
+    -1px -1px 1px var(--c-sh-l), -1px 1px 1px var(--c-sh-l), 1px -1px 1px var(--c-sh-l), 1px 1px 1px var(--c-sh-l),
+    0 0 10px var(--c-sh-l),
+    0 0 20px var(--c-sh), 0 0 40px var(--c-sh);
+    margin-bottom: 8vw;
+    opacity: 0;
+}
+
+h2 {
+    animation: fadeIn 3.5s 3s ease-out forwards;
+    color: var(--c-sh);
+    font-size: 2vw;
+    filter: blur(0.01em);
+    text-shadow:
+    -1px -1px 1px var(--c-sh-l), -1px 1px 1px var(--c-sh-l), 1px -1px 1px var(--c-sh-l), 1px 1px 1px var(--c-sh-l),
+    0 0 5px var(--c-sh-l),
+    0 0 10px var(--c-sh-l), 0 0 20px var(--c-sh-l);
+    opacity: 0;
+}
+
+@keyframes neon {
+    0% {
+        text-shadow: -1px -1px 1px var(--c-sh-l), -1px 1px 1px var(--c-sh-l), 1px -1px 1px var(--c-sh-l), 1px 1px 1px var(--c-sh-l),
+        0 0 10px var(--c-sh-l),
+        0 0 20px var(--c-sh), 0 0 40px var(--c-sh);
+    }
+    50% {
+        text-shadow: -1px -1px 1px var(--c-sh-l), -1px 1px 1px var(--c-sh-l), 1px -1px 1px var(--c-sh-l), 1px 1px 1px var(--c-sh-l),
+        0 0 25px var(--c-sh-l),
+        0 0 50px var(--c-sh), 0 0 70px var(--c-sh);
+    }
+    100% {
+        text-shadow: -1px -1px 1px var(--c-sh-l), -1px 1px 1px var(--c-sh-l), 1px -1px 1px var(--c-sh-l), 1px 1px 1px var(--c-sh-l),
+        0 0 10px var(--c-sh-l),
+        0 0 20px var(--c-sh), 0 0 40px var(--c-sh);
+    }
+}
