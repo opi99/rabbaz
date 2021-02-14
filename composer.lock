@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opi99/forwardfw.git",
-                "reference": "acbd5f6fa93a014e9a0f3c9e79df840045c81827"
+                "reference": "d042a2f4421c59f110bd77f2e49a44e1d6963688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/acbd5f6fa93a014e9a0f3c9e79df840045c81827",
-                "reference": "acbd5f6fa93a014e9a0f3c9e79df840045c81827",
+                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/d042a2f4421c59f110bd77f2e49a44e1d6963688",
+                "reference": "d042a2f4421c59f110bd77f2e49a44e1d6963688",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "issues": "https://github.com/opi99/forwardfw/issues",
                 "source": "https://github.com/opi99/forwardfw/tree/master"
             },
-            "time": "2021-02-07T20:59:32+00:00"
+            "time": "2021-02-14T12:49:24+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -214,16 +214,16 @@
         },
         {
             "name": "twbs/bootstrap",
-            "version": "v5.0.0-beta1",
+            "version": "v5.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "63f3d939eaceeb84dcc77a7392953bcc8c5bc0a3"
+                "reference": "e50c11b8c6434b6d68ea5897771e4d35fe12f5c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/63f3d939eaceeb84dcc77a7392953bcc8c5bc0a3",
-                "reference": "63f3d939eaceeb84dcc77a7392953bcc8c5bc0a3",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/e50c11b8c6434b6d68ea5897771e4d35fe12f5c3",
+                "reference": "e50c11b8c6434b6d68ea5897771e4d35fe12f5c3",
                 "shasum": ""
             },
             "replace": {
@@ -258,7 +258,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twbs/bootstrap/issues",
-                "source": "https://github.com/twbs/bootstrap/tree/v5.0.0-beta1"
+                "source": "https://github.com/twbs/bootstrap/tree/v5.0.0-beta2"
             },
             "funding": [
                 {
@@ -266,20 +266,20 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-12-07T16:18:16+00:00"
+            "time": "2021-02-10T16:14:51+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v3.2.1",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "f795ca686d38530045859b0350b5352f7d63447d"
+                "reference": "1f3b7e2c06cc05d42936a8ad508ff1db7975cdc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f795ca686d38530045859b0350b5352f7d63447d",
-                "reference": "f795ca686d38530045859b0350b5352f7d63447d",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1f3b7e2c06cc05d42936a8ad508ff1db7975cdc5",
+                "reference": "1f3b7e2c06cc05d42936a8ad508ff1db7975cdc5",
                 "shasum": ""
             },
             "require": {
@@ -294,7 +294,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -330,7 +330,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.2.1"
+                "source": "https://github.com/twigphp/Twig/tree/v3.3.0"
             },
             "funding": [
                 {
@@ -342,7 +342,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-05T15:40:36+00:00"
+            "time": "2021-02-08T09:54:36+00:00"
         }
     ],
     "packages-dev": [],
