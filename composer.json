@@ -25,7 +25,7 @@
         "php": "^7.4",
         "fortawesome/font-awesome": "^5.15",
         "forward/forwardfw": "@dev",
-        "twbs/bootstrap": "@beta",
+        "twbs/bootstrap": "^5.0@beta",
         "twig/twig": "^3.0"
     },
     "suggest": {
