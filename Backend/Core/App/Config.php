@@ -16,9 +16,9 @@ return (new ForwardFW\Config\Runner())
                                     (new Rabbaz\Core\App\Config\Application())
                                         ->setName('Rabbaz Administration')
                                         ->setScreens([
-                                            'dashboard' => \Rabbaz\Core\App\Controller\Dashboard::class,
-                                            'displays' => \Rabbaz\Core\App\Controller\Displays::class,
-                                            'hardwareSearch' => \Rabbaz\Core\App\Controller\HardwareSearch::class,
+                                            'dashboard' => \Rabbaz\Core\App\Controller\Screen\Dashboard::class,
+                                            'displays' => \Rabbaz\Core\App\Controller\Screen\Displays::class,
+                                            'hardwareSearch' => \Rabbaz\Core\App\Controller\Screen\HardwareSearch::class,
                                         ])
                                         ->setTemplaterConfig($templaterConfig)
                                 )
@@ -33,7 +33,7 @@ return (new ForwardFW\Config\Runner())
                                     (new Rabbaz\Core\App\Config\Application())
                                         ->setName('Hello Rabbaz')
                                         ->setScreens([
-                                            'Hello' => \Rabbaz\Core\App\Controller\Hello::class,
+                                            'Hello' => \Rabbaz\Core\App\Controller\Screen\Hello::class,
                                         ])
                                         ->setTemplaterConfig($templaterConfig)
                                 )
