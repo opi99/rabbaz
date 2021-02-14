@@ -1,0 +1,12 @@
+{% extends "Rabbaz/Core/App/Controller/Screen/AbstractAdministration.twig" %}
+
+{% block main %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Search Hardware</h1>
+</div>
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading"><i class="far fa-sad-tear"></i> No equipment found!</h4>
+    Please start discovering useable equipment around you.
+</div>
+<button type="button" class="btn btn-outline-primary"><i class="fas fa-satellite-dish"></i> Start discover equipment</button>
+{% endblock %}

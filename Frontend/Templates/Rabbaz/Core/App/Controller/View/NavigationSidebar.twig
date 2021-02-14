@@ -1,0 +1,25 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+    <div class="position-sticky pt-4">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link {% if selectedScreenName == 'dashboard' %}active {% endif %}" href="administration/dashboard">
+                <i class="fas fa-chalkboard"></i>
+                Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if selectedScreenName == 'displays' %}active {% endif %}" href="administration/displays">
+                <i class="fas fa-tv"></i>
+                Displays
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if selectedScreenName == 'hardwareSearch' %}active {% endif %}" href="administration/hardwareSearch">
+                <i class="fas fa-satellite-dish"></i>
+                Search Hardware
+                </a>
+            </li>
+        </ul>
+        </ul>
+    </div>
+</nav>
