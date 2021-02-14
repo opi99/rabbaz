@@ -1,5 +1,5 @@
-# rabbaz
-Platform for detectable devices in PHP, hihgly experimental
+# Rabbaz
+Platform for detectable devices in PHP, Music Player, hihgly experimental
 
 The main goal
 =============
@@ -33,4 +33,4 @@ What else
 =========
 
 Till yet, no button or sound played. But different devices discovered, a HP Printer by WebServices, FRITZ!Box by UPnP
-and TR-064, a MacBook by ZeroConf(Bonjour) or headphone by bluetooth.
+and TR-064, a MacBook by ZeroConf(Bonjour), headphones by bluetooth and the local ALSA and mpd instance.
