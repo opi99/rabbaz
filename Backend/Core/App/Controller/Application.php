@@ -13,6 +13,11 @@ class Application extends \ForwardFW\Controller\Application
     {
         $processScreen = trim($this->request->getRoutePath(), '/');
 
+        // Remove path parameters which start with a question mark
+        if (($positionParameter = strpos($processScreen, '?')) !== false) {
+            $processScreen = substr($processScreen, 0, $positionParameter);
+        }
+
         if (!isset($this->configuredScreens[$processScreen])) {
             $processScreen = array_keys($this->configuredScreens)[0];
         }
