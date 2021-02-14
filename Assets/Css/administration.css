@@ -1,6 +1,7 @@
 :root {
-    --c-bg: #040904;
-    --c-bg-o: #060E06;
+    --c-bg-1: #040904;
+    --c-bg-2: #060E06;
+    --c-bg-3: #0D210D;
 
     --c-fg-a-1: #0D210D; /* Style a */
     --c-fg-a-2: #173917;
@@ -39,6 +40,9 @@
 .btn-outline-primary:disabled, .btn-outline-primary.disabled {
     color: var(--bs-primary);
     background-color: transparent;
+}
+.card {
+    background-color: var(--c-bg-3)
 }
 
 /*!
@@ -84,7 +88,7 @@ body {
 
 body {
     font-size: 1.1rem;
-    background-color: var(--c-bg);
+    background-color: var(--c-bg-1);
     color: var(--c-fg-a-7);
 }
 
@@ -111,7 +115,7 @@ a:hover {
     z-index: 100;
     padding: 48px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-    background-image: conic-gradient(from 90deg at 0 90%, var(--c-fg-b-1), 90deg, var(--c-bg-o), 358deg, var(--c-fg-a-5));
+    background-image: conic-gradient(from 90deg at 0 90%, var(--c-fg-b-1), 90deg, var(--c-bg-2), 358deg, var(--c-fg-a-5));
 }
 
 @media (max-width: 767.98px) {
@@ -140,7 +144,7 @@ a:hover {
 
 .sidebar .nav-link.active {
     color: var(--c-fg-a-11);
-    background-image: linear-gradient(to right, var(--c-fg-b-7), var(--c-bg-o));
+    background-image: linear-gradient(to right, var(--c-fg-b-7), var(--c-bg-2));
 }
 
 .sidebar-heading {
@@ -160,7 +164,7 @@ a:hover {
 }
 
 .navbar {
-    background-color: var(--c-bg-o);
+    background-color: var(--c-bg-2);
 }
 
 .navbar .navbar-toggler {
