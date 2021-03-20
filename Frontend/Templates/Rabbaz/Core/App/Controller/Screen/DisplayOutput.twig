@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="Assets/Css/administration.css">
+
+<div class="row">
+
+    <main class="col-12">
+
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Displays</h1>
+        </div>
+
+        {% if mpdState.state == 'pause' %}
+        <button type="button" class="btn btn-outline-dark"><img src="Assets/Images/actions/media-playback-start.svg" ></button>
+        {% else %}
+        <button type="button" class="btn btn-outline-dark"><img src="Assets/Images/actions/media-playback-stop.svg" ></button>
+        {% endif %}
+    </main>
+</div>
+
+<footer>
+</footer>
