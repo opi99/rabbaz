@@ -9,5 +9,5 @@ ini_set("display_errors", 1);
 include '../vendor/autoload.php';
 
 $bootstrap = new ForwardFW\Bootstrap();
-$bootstrap->loadConfig(__DIR__ . '/../Backend/Core/App/Config.php');
+$bootstrap->loadConfig(__DIR__ . '/../config/Application.php');
 $bootstrap->run();
