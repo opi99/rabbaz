@@ -35,7 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Rabbaz\\Core\\": "Backend/Core"
+            "Rabbaz\\Core\\": "src/Backend/Core"
         }
     },
     "autoload-dev": {
