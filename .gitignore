@@ -1,5 +1,18 @@
-Assets/Images/devices/upnp.png
-Assets/Images/devices/raspberrypi.svg
+web/Assets/Images/devices/upnp.png
+web/Assets/Images/devices/raspberrypi.svg
 
 vendor/*
 cache/*
+
+### ide
+/.idea/
+*.iml
+nbproject
+*.swp
+*.kdev4
+
+### os
+.DS_Store
+thumbs.db
+desktop.ini
+.directory
