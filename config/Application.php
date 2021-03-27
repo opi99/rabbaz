@@ -1,8 +1,8 @@
 <?php
 
 $templaterConfig = (new ForwardFW\Config\Templater\Twig())
-    ->setCompilePath(getcwd() . '/cache/')
-    ->setTemplatePath(getcwd() . '/Frontend/Templates');
+    ->setCompilePath(__DIR__ . '/../cache/')
+    ->setTemplatePath(__DIR__ . '/../Frontend/Templates');
 
 return (new ForwardFW\Config\Runner())
         ->addProcessor(
