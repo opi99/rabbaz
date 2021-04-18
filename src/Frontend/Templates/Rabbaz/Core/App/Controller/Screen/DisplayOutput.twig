@@ -2,18 +2,67 @@
 
 <div class="row">
 
-    <main class="col-12">
+    <div class="col-12">
+        <header class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-1">
+                {% if mpdState.state == 'play' %}
+                    <img src="Assets/Images/actions/media-playback-stop.svg" style="width: 128px">
+                {% else %}
+                    <img src="Assets/Images/actions/media-playback-start.svg" style="width: 128px">
+                {% endif %}
+            </div>
+            {% if currentCover %}
+                <div class="col-1">
+                    <img src="{{ currentCover }}" style="width: 128px" />
+                </div>
+            {% endif %}
+            <div class="col-4">
+                {% if mpdState.duration %}
+                    {# We have a duration => CD #}
+                    {{ mpdCurrentSong.Title }}<br />
+                    {% if mpdCurrentSong.Name %}
+                        {{ mpdCurrentSong.Name }}<br />
+                    {% endif %}
+                    {% if mpdCurrentSong.Artist %}
+                        {{ mpdCurrentSong.Artist }}
+                        {% if mpdCurrentSong.Album %}
+                            - {{ mpdCurrentSong.Album }}
+                        {% endif %}
+                        <br />
+                    {% endif %}
+                {% else %}
+                    {# We have no duration => stream #}
+                    {{ mpdCurrentSong.Name }}<br />
+                    {{ mpdCurrentSong.Title }}
+                {% endif %}
+            </div>
+            <div class="col-4">
+                Time: {{ mpdState.elapsed|round|date('i:s') }}
+                {% if mpdState.duration %}
+                    / {{ mpdState.duration|round|date('i:s') }}
+                {% endif %}
+            </div>
+        </header>
+    </div>
 
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Displays</h1>
+    <div class="col-1">
+        <nav>
+            <a href="display?id=1"><img src="Assets/Images/devices/audio-radio.svg" style="width: 100%" /></a>
+            <a href="display?id=2"><img src="Assets/Images/devices/media-optical.svg" style="width: 100%" /></a>
+            <a href="display?id=3"><img src="Assets/Images/places/folder-sound.svg" style="width: 100%" /></a>
+        </nav>
+    </div>
+    <div class="col-11">
+
+        <div class="row">
+            <main class="col-12">
+                <pre>{{ dump(mpdState) }}</pre>
+                <pre>{{ dump(mpdCurrentSong) }}</pre>
+            </main>
         </div>
-
-        {% if mpdState.state == 'pause' %}
-        <button type="button" class="btn btn-outline-dark"><img src="Assets/Images/actions/media-playback-start.svg" ></button>
-        {% else %}
-        <button type="button" class="btn btn-outline-dark"><img src="Assets/Images/actions/media-playback-stop.svg" ></button>
-        {% endif %}
-    </main>
+    </div>
 </div>
 
 <footer>
