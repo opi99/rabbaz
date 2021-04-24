@@ -13,11 +13,11 @@
                     <img src="Assets/Images/actions/media-playback-start.svg" style="width: 128px">
                 {% endif %}
             </div>
-            {% if currentCover %}
-                <div class="col-1">
+            <div class="col-1">
+                {% if currentCover %}
                     <img src="{{ currentCover }}" style="width: 128px" />
-                </div>
-            {% endif %}
+                {% endif %}
+            </div>
             <div class="col-4">
                 {% if mpdState.duration %}
                     {# We have a duration => CD #}
@@ -38,11 +38,12 @@
                     {{ mpdCurrentSong.Title }}
                 {% endif %}
             </div>
-            <div class="col-4">
+            <div class="col-5">
                 Time: {{ mpdState.elapsed|round|date('i:s') }}
                 {% if mpdState.duration %}
                     / {{ mpdState.duration|round|date('i:s') }}
-                {% endif %}
+                {% endif %}<br />
+                Volume: {{ mpdState.volume }}
             </div>
         </header>
     </div>
@@ -58,8 +59,23 @@
 
         <div class="row">
             <main class="col-12">
-                <pre>{{ dump(mpdState) }}</pre>
-                <pre>{{ dump(mpdCurrentSong) }}</pre>
+                {% if collection %}
+                    <div class="container-flex">
+                        <div class="row">
+                    {% for album in collection %}
+                            <div class="col-sm-2">
+                                <div class="card" style="">
+                                    <img src="{{ album.cover }}" class="card-img-top" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ album.artist|e }}</h5>
+                                        <p class="card-text">{{ album.title|e }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                    {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
             </main>
         </div>
     </div>
