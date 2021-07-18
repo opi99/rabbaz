@@ -13,10 +13,17 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
     /** @var \Rabbaz\Core\Model\Service */
     private $mpdService = null;
 
+    /** @var string */
+    private $currentCover = null;
+
     /** @var \Rabbaz\Core\Plugins\Local\Service\Mpd */
     private $serviceHandler = null;
 
+    /** @var int */
     private $screenId = 0;
+
+    /** @var string */
+    private $action = '';
 
     /**
      * Control the user input, if available.
@@ -27,12 +34,30 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
     {
         $this->initializeMpd();
         $this->screenId = (int) $this->getParameter('id');
+        $this->action = $this->getParameter('action');
 
         $this->serviceHandler = $GLOBALS['pluginRegistration']->getPlugin('Service', 'Local', 'Mpd');
 
+        switch ($this->action) {
+            case 'play':
+                $this->startPlay();
+                break;
+            case 'stop':
+                $this->stopPlay();
+                break;
+            default:
+                // Nothing to do
+        }
+
         $this->mpdState = $this->serviceHandler->getState($this->mpdService);
         $this->mpdCurrentSong = $this->serviceHandler->getCurrentSong($this->mpdService);
-        $this->currentCover = $this->getCurrentCover(dirname($this->mpdCurrentSong['file']), $this->mpdCurrentSong['file']);
+        if (!empty($this->mpdCurrentSong)) {
+            $this->currentCover = $this->getCurrentCover(
+                dirname($this->mpdCurrentSong['file']),
+                $this->mpdCurrentSong['file'],
+                'Assets/Images/devices/media-optical.svg'
+            );
+        }
 
         return true;
     }
@@ -45,6 +70,9 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
 
         switch ($this->screenId) {
             case 1:
+                $this->application->getTemplater()->setVar(
+                    'collection', $this->retrieveRadios()
+                );
                 break;
             case 2:
                 break;
@@ -60,11 +88,12 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
         $this->application->getTemplater()->setVar('mpdState', $this->mpdState);
         $this->application->getTemplater()->setVar('mpdCurrentSong', $this->mpdCurrentSong);
         $this->application->getTemplater()->setVar('currentCover', $this->currentCover);
+        $this->application->getTemplater()->setVar('screenId', $this->screenId);
 
         return parent::controlView();
     }
 
-    public function getCurrentCover(string $pathAlbum, string $pathOneSong): string
+    public function getCurrentCover(string $pathAlbum, string $pathOneSong, string $default): string
     {
         $coverHash = md5('coverArt_' . $pathAlbum); //$currentSong['file']));
         $filename = $this->findCoverFile($coverHash);
@@ -73,7 +102,7 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
             $filename = $this->retrieveCover($pathOneSong, $coverHash);
             if (!$filename) {
                 /** @TODO save if we do not get any cover to not try receive it every time */
-                return 'Assets/Images/devices/media-optical.svg';
+                return $default;
             }
         }
 
@@ -123,6 +152,37 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
         return $files[0];
     }
 
+
+    public function retrieveRadios(): array
+    {
+        $collection = [];
+        $collectionPaths = $this->serviceHandler->getPath($this->mpdService, 'Radio');
+
+        foreach ($collectionPaths as $pathAlbum) {
+            if (isset($pathAlbum['playlist'])) {
+                $playlistEntries = $this->serviceHandler->getPlaylist($this->mpdService, $pathAlbum['playlist']);
+                if (isset($playlistEntries[0])) {
+                    foreach ($playlistEntries as $playlistEntrie) {
+                        if (isset($playlistEntrie['file'])) {
+                            // Getting album information from first title
+                            array_push(
+                                $collection,
+                                [
+                                    'path' => $playlistEntrie['file'],
+                                    'cover' => 'Assets/Images/devices/audio-radio.svg',
+                                    'title' => $playlistEntrie['Title'],
+                                    'artist' => (isset($playlistEntrie['Artist'])) ? $playlistEntrie['Artist'] : '',
+                                ]
+                            );
+                        }
+                    }
+                }
+            }
+        }
+
+        return $collection;
+    }
+
     public function retrieveCollection(): array
     {
         $collection = [];
@@ -137,7 +197,7 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
                         $collection,
                         [
                             'path' => $pathAlbum['directory'],
-                            'cover' => $this->getCurrentCover($pathAlbum['directory'], $musicFiles[0]['file']),
+                            'cover' => $this->getCurrentCover($pathAlbum['directory'], $musicFiles[0]['file'], 'Assets/Images/devices/media-optical.svg'),
                             'title' => $musicFiles[0]['Album'],
                             'artist' => $musicFiles[0]['Artist'],
                         ]
@@ -147,6 +207,20 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
         }
 
         return $collection;
+    }
+
+    protected function startPlay()
+    {
+        if ($what = $this->getParameter('what')) {
+            $this->serviceHandler->startPlay($this->mpdService, $what);
+        } else {
+            $this->serviceHandler->startPlay($this->mpdService);
+        }
+    }
+
+    protected function stopPlay()
+    {
+        $this->serviceHandler->stopPlay($this->mpdService);
     }
 
     protected function initializeMpd()
