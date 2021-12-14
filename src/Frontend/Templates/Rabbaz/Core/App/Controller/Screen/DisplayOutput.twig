@@ -41,7 +41,9 @@
                 {% endif %}
             </div>
             <div class="col-2 col-lg-3">
-                Time: {{ mpdState.elapsed|round|date('i:s') }}
+                {% if mpdState.elapsed %}
+                    Time: {{ mpdState.elapsed|round|date('i:s') }}
+                {% endif %}
                 {% if mpdState.duration %}
                     / {{ mpdState.duration|round|date('i:s') }}
                 {% endif %}<br />
@@ -50,7 +52,7 @@
         </header>
     </div>
 
-    <div class="col-2 col-lg-1">
+    <div class="col-2 col-xl-1">
         <nav>
             <a href="display?id=1" class="{% if screenId == 1 %}bg-success{% endif %}" style="display: block">
                 <img src="Assets/Images/devices/audio-radio.svg" style="width: 100%" />
@@ -63,23 +65,26 @@
             </a>
         </nav>
     </div>
-    <div class="col-10 col-lg-11">
-
-        <div class="row">
-            <main class="col-12">
+    <div class="col-10 col-xl-10">
+        <div class="row" style="overflow:hidden; height: 100vh">
+            <main class="col-12 touchScroll inertialScroll" style="overflow:hidden;transition: transform 1s ease-out">
                 {% if collection %}
-                    <div class="container-flex">
-                        <div class="row g-2">
+                    <div class="card-group">
+                        <div class="row row-cols-4 row-cols-xl-6 g-2">
                     {% for album in collection %}
-                            <div class="col-lg-2 col-4">
-                                <div class="card" style="">
-                                    <a href="display?id={{ screenId }}&action=play&what={{ album.path }}">
-                                        <img src="{{ album.cover }}" class="card-img-top" alt="">
+                            <div class="col">
+                                <div class="card h-100">
+                                    <!--a href="display?id={{ screenId }}&action=play&what={{ album.path }}"-->
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ album.artist|e }}</h5>
-                                            <p class="card-text">{{ album.title|e }}</p>
+                                            <img src="{{ album.cover }}" class="card-img-top" alt="">
                                         </div>
-                                    </a>
+                                        <div class="card-footer">
+                                            <a href="display?id={{ screenId }}&action=play&what={{ album.path }}" class="stretched-link">
+                                                <h5 class="card-title">{{ album.artist|e }}</h5>
+                                                <p class="card-text">{{ album.title|e }}</p>
+                                            </a>
+                                        </div>
+                                    <!--/a-->
                                 </div>
                             </div>
                     {% endfor %}

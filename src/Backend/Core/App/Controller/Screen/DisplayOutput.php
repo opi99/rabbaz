@@ -25,6 +25,9 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
     /** @var string */
     private $action = '';
 
+    /** @var array */
+    private $logoConfiguration = null;
+
     /**
      * Control the user input, if available.
      *
@@ -113,6 +116,9 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
     {
         $pathSongConfig = parse_url($pathSong);
 
+        if (!isset($pathSongConfig['scheme'])) {
+            $pathSongConfig['scheme'] = 'MPD';
+        }
         switch ($pathSongConfig['scheme']) {
             case 'radio':
                 return $this->retrieveRadioCover($pathSongConfig['host'], $coverHash);
@@ -124,38 +130,29 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
 
     public function retrieveRadioCover(string $pathSong, string $coverHash): string
     {
-        $logoConfiguration = [
-            'MDR Sachsen' => 'https://cdn.mdr.de/presse/logos/logo-206-resimage_v-variantBig16x9_w-1472.png?version=10523',
-            'MDR Schlagerwelt' => 'https://cdn.mdr.de/administratives/av/bild-36078_v-variantBig16x9_w-576_zc-915c23fa.png?version=17543',
-            'MDR' => 'https://cdn.mdr.de/presse/logos/mdr-dachmarke-100-resimage_v-variantBig1xN_w-1472.png?version=17833',
-            '104.6' => 'https://www.104.6rtl.com/assets/icons/logo.svg',
-            '1Live' => 'https://www1.wdr.de/radio/1live/1live-logo-schwarz-100~_v-gseagaleriexl.jpg', //'https://www1.wdr.de/resources/img/wdr/logo/epgmodule/1live_logo_claim.svg',
-            '89.0 RTL' => 'https://www.89.0rtl.de/assets/icons/logo.svg',
-            'Absolut Top' => 'https://radioplayer.absolutradio.de/logos/logo_top_500x260.jpg',
-            'Absolut Hot' => 'https://radioplayer.absolutradio.de/logos/logo_hot_500x260.jpg',
-            'Absolut Relax' => 'https://radioplayer.absolutradio.de/logos/logo_relax_500x260.jpg',
-            'Absolut Bella' => 'https://radioplayer.absolutradio.de/logos/logo_bella_500x260.jpg',
-            'Absolut Oldies' => 'https://radioplayer.absolutradio.de/logos/logo_oldies_500x260.jpg',
-            'Absolut musicXL' => 'https://radioplayer.absolutradio.de/logos/logo_musicxl_500x260.jpg',
-            'Alternativ FM' => 'https://www.alternativefm.de/radioplayer/img/plugin-space-image.jpg',
-            'Antenne 1' => 'http://static.radio.de/images/broadcasts/ac/1a/2417/2/c175.png',
-            'Antenne Bayern Chillout' => 'http://static.radio.de/images/broadcasts/21/d5/9117/1/c175.png',
-            'Antenne Bayern' => 'https://www.antenne.de/assets/templates/antenne-de//img/logo-antenne-de-header-2.svg',
-        ];
+        /** @TODO Should be a service so we cann add others? */
+        if (is_null($this->logoConfiguration)) {
+            $this->logoConfiguration = json_decode(file_get_contents(__DIR__ . '/../../../../../../config/RadioCover.json'), true);
+        }
         $logoUrl = '';
 
         // Direct match
-        if (isset($logoConfiguration[$pathSong])) {
-            $logoUrl = $logoConfiguration[$pathSong];
+        if (isset($this->logoConfiguration[$pathSong])) {
+            $logoUrl = $this->logoConfiguration[$pathSong];
         }
 
         if (!$logoUrl) {
             // Try to match shorter words
-            while ($pos = mb_strrpos($pathSong,' ')) {
-                $pathSong = mb_substr($pathSong, 0, $pos);
-                if (isset($logoConfiguration[$pathSong])) {
-                    $logoUrl = $logoConfiguration[$pathSong];
-                    break;
+            $pathSong = trim(mb_eregi_replace('/radio/', '', $pathSong));
+            if (isset($this->logoConfiguration[$pathSong])) {
+                $logoUrl = $this->logoConfiguration[$pathSong];
+            } else {
+                while ($pos = mb_strrpos($pathSong,' ')) {
+                    $pathSong = mb_substr($pathSong, 0, $pos);
+                    if (isset($this->logoConfiguration[$pathSong])) {
+                        $logoUrl = $this->logoConfiguration[$pathSong];
+                        break;
+                    }
                 }
             }
         }
@@ -244,7 +241,12 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
         $collectionPaths = $this->serviceHandler->getPath($this->mpdService, 'Radio');
 
         foreach ($collectionPaths as $pathAlbum) {
+            $favorite = false;
             if (isset($pathAlbum['playlist'])) {
+
+                if (mb_stripos($pathAlbum['playlist'], 'favorite') !== false) {
+                    $favorite = true;
+                }
                 $playlistEntries = $this->serviceHandler->getPlaylist($this->mpdService, $pathAlbum['playlist']);
                 if (isset($playlistEntries[0])) {
                     foreach ($playlistEntries as $playlistEntrie) {
@@ -253,10 +255,11 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
                             array_push(
                                 $collection,
                                 [
+                                    'favorite' => $favorite,
                                     'path' => $playlistEntrie['file'],
                                     'cover' => $this->getCurrentCover($playlistEntrie['file'], 'radio://' . $playlistEntrie['Title'], 'Assets/Images/devices/audio-radio.svg'),
-                                    'title' => $playlistEntrie['Title'],
-                                    'artist' => (isset($playlistEntrie['Artist'])) ? $playlistEntrie['Artist'] : '',
+                                    'title' => $playlistEntrie['Title'] ?? '',
+                                    'artist' => $playlistEntrie['Artist'] ?? '',
                                 ]
                             );
                         }
@@ -264,6 +267,17 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
                 }
             }
         }
+
+        uasort($collection, function ($a, $b) {
+            //Sort by title but favorites first
+            if ($a['favorite'] === $b['favorite']) {
+                return strnatcmp($a['title'], $b['title']);
+            }
+            if ($a['favorite'] === true) {
+                return -1;
+            }
+            return 1;
+        });
 
         return $collection;
     }
@@ -283,8 +297,8 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
                         [
                             'path' => $pathAlbum['directory'],
                             'cover' => $this->getCurrentCover($pathAlbum['directory'], $musicFiles[0]['file'], 'Assets/Images/devices/media-optical.svg'),
-                            'title' => $musicFiles[0]['Album'],
-                            'artist' => $musicFiles[0]['Artist'],
+                            'title' => $musicFiles[0]['Album'] ?? '',
+                            'artist' => $musicFiles[0]['Artist'] ?? '',
                         ]
                     );
                 }
