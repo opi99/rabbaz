@@ -17,12 +17,12 @@
     "config": {
         "bin-dir": "bin",
         "platform": {
-            "php": "8.1.0"
+            "php": "8.2.0"
         },
         "sort-packages": true
     },
     "require": {
-        "php": "^8.0",
+        "php": "^8.2",
         "fortawesome/font-awesome": "^5.15",
         "forward/forwardfw": "@dev",
         "twbs/bootstrap": "^5.0@beta",
