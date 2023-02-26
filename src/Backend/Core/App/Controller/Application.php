@@ -11,7 +11,7 @@ class Application extends \ForwardFW\Controller\Application
      */
     public function getProcessScreen(): string
     {
-        $processScreen = trim($this->request->getRoutePath(), '/');
+        $processScreen = trim($this->request->getRequestTarget(), '/');
 
         // Remove path parameters which start with a question mark
         if (($positionParameter = strpos($processScreen, '?')) !== false) {

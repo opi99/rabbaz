@@ -81,12 +81,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opi99/forwardfw.git",
-                "reference": "4d7900b8a4eb629c7ded5fec7a59c56cfd4cb81b"
+                "reference": "4f8e3732682d59e2e66b434bfeda6372548a363e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/4d7900b8a4eb629c7ded5fec7a59c56cfd4cb81b",
-                "reference": "4d7900b8a4eb629c7ded5fec7a59c56cfd4cb81b",
+                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/4f8e3732682d59e2e66b434bfeda6372548a363e",
+                "reference": "4f8e3732682d59e2e66b434bfeda6372548a363e",
                 "shasum": ""
             },
             "require": {
@@ -129,7 +129,7 @@
                 "issues": "https://github.com/opi99/forwardfw/issues",
                 "source": "https://github.com/opi99/forwardfw/tree/master"
             },
-            "time": "2023-02-26T18:05:13+00:00"
+            "time": "2023-02-26T18:14:43+00:00"
         },
         {
             "name": "kodus/chrome-logger",
