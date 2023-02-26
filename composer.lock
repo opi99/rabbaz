@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7603cd9da266dc10031c49b73902f279",
+    "content-hash": "c53c883a0a5feae9f8546d06f06b3b60",
     "packages": [
         {
             "name": "fortawesome/font-awesome",
@@ -81,12 +81,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opi99/forwardfw.git",
-                "reference": "3ae17ccc31c2bd07ba38a8fe86285de108910d58"
+                "reference": "4d7900b8a4eb629c7ded5fec7a59c56cfd4cb81b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/3ae17ccc31c2bd07ba38a8fe86285de108910d58",
-                "reference": "3ae17ccc31c2bd07ba38a8fe86285de108910d58",
+                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/4d7900b8a4eb629c7ded5fec7a59c56cfd4cb81b",
+                "reference": "4d7900b8a4eb629c7ded5fec7a59c56cfd4cb81b",
                 "shasum": ""
             },
             "require": {
@@ -129,7 +129,63 @@
                 "issues": "https://github.com/opi99/forwardfw/issues",
                 "source": "https://github.com/opi99/forwardfw/tree/master"
             },
-            "time": "2023-02-19T22:13:56+00:00"
+            "time": "2023-02-26T18:05:13+00:00"
+        },
+        {
+            "name": "kodus/chrome-logger",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kodus/chrome-logger.git",
+                "reference": "4aeed0d949037831a3064b28e67d733e478a8301"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kodus/chrome-logger/zipball/4aeed0d949037831a3064b28e67d733e478a8301",
+                "reference": "4aeed0d949037831a3064b28e67d733e478a8301",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0",
+                "psr/http-message": "^1",
+                "psr/http-server-middleware": "^1",
+                "psr/log": "^1"
+            },
+            "require-dev": {
+                "codeception/codeception": "^5",
+                "codeception/module-asserts": "^3",
+                "mindplay/middleman": "^4",
+                "mockery/mockery": "^1.5",
+                "nyholm/psr7": "^1.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kodus\\Logging\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rasmus Schultz",
+                    "email": "rasc@jfmedier.dk",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Bo Andersen",
+                    "email": "boan@jfmedier.dk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PSR-3 (logging), PSR-7 (HTTP) and PSR-15 (middleware) compliant alternative to the original ChromeLogger for PHP",
+            "support": {
+                "issues": "https://github.com/kodus/chrome-logger/issues",
+                "source": "https://github.com/kodus/chrome-logger/tree/1.2.0"
+            },
+            "time": "2022-08-24T10:44:58+00:00"
         },
         {
             "name": "psr/container",

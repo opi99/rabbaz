@@ -25,6 +25,7 @@
         "php": "^8.2",
         "fortawesome/font-awesome": "^5.15",
         "forward/forwardfw": "@dev",
+        "kodus/chrome-logger": "^1.2",
         "twbs/bootstrap": "^5.0@beta",
         "twig/twig": "^3.0"
     },
