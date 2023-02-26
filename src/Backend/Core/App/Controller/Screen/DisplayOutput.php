@@ -28,6 +28,8 @@ class DisplayOutput extends \ForwardFW\Controller\Screen
     /** @var array */
     private $logoConfiguration = null;
 
+    private $localEquipment;
+
     /**
      * Control the user input, if available.
      *
