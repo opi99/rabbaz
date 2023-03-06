@@ -29,8 +29,11 @@ services:
         environment:
             - ALSA_OUTPUT_ENABLED=yes
             - ALSA_OUTPUT_CREATE=yes
-            - ALSA_OUTPUT_NAME=local
-            - ALSA_OUTPUT_DEVICE=default:1
+            - ALSA_OUTPUT_NAME=Local Device
+            - ALSA_OUTPUT_DEVICE=hw:1
+            - ALSA_OUTPUT_MIXER_CONTROL=Master
+            - ALSA_OUTPUT_MIXER_DEVICE=hw:1
+            - ALSA_OUTPUT_MIXER_TYPE=hardware
         volumes:
             - ./data/Music:/music:ro
             - ./data/Database:/db:rw
