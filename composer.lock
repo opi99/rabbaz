@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c53c883a0a5feae9f8546d06f06b3b60",
+    "content-hash": "21297ccb336d11dc5986d5522cc66779",
     "packages": [
         {
             "name": "fortawesome/font-awesome",
-            "version": "5.15.4",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "7d3d774145ac38663f6d1effc6def0334b68ab7e"
+                "reference": "d02961b018153506364077343b0edcde0a39d27e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/7d3d774145ac38663f6d1effc6def0334b68ab7e",
-                "reference": "7d3d774145ac38663f6d1effc6def0334b68ab7e",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/d02961b018153506364077343b0edcde0a39d27e",
+                "reference": "d02961b018153506364077343b0edcde0a39d27e",
                 "shasum": ""
             },
             "type": "library",
@@ -29,32 +29,8 @@
             ],
             "authors": [
                 {
-                    "name": "Travis Chase",
-                    "homepage": "http://twitter.com/supercodepoet"
-                },
-                {
-                    "name": "Dave Gandy",
-                    "homepage": "http://twitter.com/davegandy"
-                },
-                {
-                    "name": "Rob Madole",
-                    "homepage": "http://twitter.com/robmadole"
-                },
-                {
-                    "name": "Jory Raphael",
-                    "homepage": "http://twitter.com/sensibleworld"
-                },
-                {
-                    "name": "Geremia Taglialatela",
-                    "homepage": "http://twitter.com/gtagliala"
-                },
-                {
-                    "name": "Brian Talbot",
-                    "homepage": "http://twitter.com/talbs"
-                },
-                {
-                    "name": "Mike Wilkerson",
-                    "homepage": "http://twitter.com/mw77"
+                    "name": "The Font Awesome Team",
+                    "homepage": "https://github.com/orgs/FortAwesome/people"
                 }
             ],
             "description": "The iconic font, CSS, and SVG framework",
@@ -68,12 +44,12 @@
                 "svg"
             ],
             "support": {
-                "docs": "http://fontawesome.com/how-to-use",
+                "docs": "http://fontawesome.com/docs",
                 "email": "hello@fontawesome.com",
                 "issues": "https://github.com/FortAwesome/Font-Awesome/issues",
                 "source": "https://github.com/FortAwesome/Font-Awesome"
             },
-            "time": "2021-08-04T19:09:22+00:00"
+            "time": "2023-02-07T19:23:03+00:00"
         },
         {
             "name": "forward/forwardfw",
@@ -81,12 +57,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opi99/forwardfw.git",
-                "reference": "4f8e3732682d59e2e66b434bfeda6372548a363e"
+                "reference": "5acb0b8801c2b33e4821505f19b3b512c5204639"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/4f8e3732682d59e2e66b434bfeda6372548a363e",
-                "reference": "4f8e3732682d59e2e66b434bfeda6372548a363e",
+                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/5acb0b8801c2b33e4821505f19b3b512c5204639",
+                "reference": "5acb0b8801c2b33e4821505f19b3b512c5204639",
                 "shasum": ""
             },
             "require": {
@@ -129,7 +105,7 @@
                 "issues": "https://github.com/opi99/forwardfw/issues",
                 "source": "https://github.com/opi99/forwardfw/tree/master"
             },
-            "time": "2023-02-26T18:14:43+00:00"
+            "time": "2023-03-05T14:53:34+00:00"
         },
         {
             "name": "kodus/chrome-logger",
@@ -808,8 +784,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "forward/forwardfw": 20,
-        "twbs/bootstrap": 10
+        "forward/forwardfw": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
