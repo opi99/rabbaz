@@ -1,0 +1,51 @@
+version: '3.1'
+name: rabbaz
+services:
+    web:
+        image: "webdevops/php-nginx-dev:8.2-alpine"
+        container_name: rabbaz-web
+        network_mode: host
+        working_dir: /app
+        environment:
+            - WEB_DOCUMENT_ROOT=/app/web
+            - PHP_DISPLAY_ERRORS=1
+            - PHP_MEMORY_LIMIT=2048M
+            - PHP_MAX_EXECUTION_TIME=-1
+            - XDEBUG_MODE=debug
+            - XDEBUG_START_WITH_REQUEST=yes
+            - XDEBUG_CLIENT_PORT=9000
+            - XDEBUG_CLIENT_HOST=host.docker.internal
+            - XDEBUG_MAX_NESTING_LEVEL=1000
+        volumes:
+            - ./:/app
+    mpd:
+        image: giof71/mpd-alsa:latest
+        container_name: rabbaz-mpd
+        ports:
+            - 6600:6600
+            - 8000:8000
+        devices:
+            - /dev/snd:/dev/snd
+        environment:
+            - ALSA_OUTPUT_ENABLED=yes
+            - ALSA_OUTPUT_CREATE=yes
+            - ALSA_OUTPUT_NAME=local
+            - ALSA_OUTPUT_DEVICE=default:1
+        volumes:
+            - ./data/Music:/music:ro
+            - ./data/Database:/db:rw
+            - ./data/Playlists:/playlists:rw
+    # mpd:
+    #     image: tobi312/rpi-mpd:alpine
+    #     container_name: rabbaz-mpd
+    #     ports:
+    #         - 6600:6600
+    #         - 8000:8000
+    #     devices:
+    #         - /dev/snd:/dev/snd
+    #     restart: unless-stopped
+    #     volumes:
+    #         - data/Music:/var/lib/mpd/music:ro
+    #         - data/Playlists:/var/lib/mpd/playlists:rw
+    #         - data/Database:/var/lib/mpd/data:rw
+    #         #- ./mpd.conf:/etc/mpd.conf:rw
