@@ -48,21 +48,39 @@ class HardwareSearch extends AbstractAdministrationScreen
 
         $GLOBALS['pluginRegistration'] = $pluginRegistration;
 
-
-
-
         // Do scanning
         $allScanner = $GLOBALS['pluginRegistration']->getPlugins('Scanner');
+
+        $scanResults = [];
 
         foreach ($allScanner as $name => $scannerClass) {
             $scanner = new $scannerClass();
             $foundEquipments = $scanner->scan();
 
-            $this->equipments[$scannerClass]['equipment'] = $foundEquipments;
-            $this->equipments[$scannerClass]['errors'] = $scanner->getErrors();
+            $scanResults[$scannerClass]['equipment'] = $foundEquipments;
+            $scanResults[$scannerClass]['errors'] = $scanner->getErrors();
         }
 
-//         echo $this->showEquipments($equipments);
+        $scanResultByIdentifier = [];
+        foreach ($scanResults as $scannerClass => $result) {
+            foreach ($result['equipment'] as $foundEquipment) {
+                $netResult = $foundEquipment->getNetworkIp();
+
+                if (isset($scanResultByIdentifier[$netResult])) {
+                    // Who becomes master element?
+                    if (!$scanResultByIdentifier[$netResult]->isVisible() && $foundEquipment->isVisible()) {
+                        $foundEquipment->addDevice($scanResultByIdentifier[$netResult]);
+                        $scanResultByIdentifier[$netResult] = $foundEquipment;
+                    } else {
+                        $scanResultByIdentifier[$netResult]->addDevice($foundEquipment);
+                    }
+                } else {
+                    $scanResultByIdentifier[$netResult] = $foundEquipment;
+                }
+            }
+        }
+
+        $this->equipments = $scanResultByIdentifier;
 
     }
 }

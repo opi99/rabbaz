@@ -1,50 +1,25 @@
 <div class="container-fluid pt-3 pb-2 mb-3">
     <div class="row row-cols-md-3 g-3">
-        {% for serviceClass, services in foundEquipment %}
-            {% for equipment in services.equipment %}
-                {% if equipment.isVisible %}
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header">
-                                {{serviceClass}}<br />
-                                {{ ThemedImage(equipment.icon) }} {{equipment.friendlyName}} {% if equipment.isConnected %}connected{% else %}disconnected{% endif %}
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Manufacture: {{equipment.manufacture}}<br />
-                                    Model: {{equipment.model}}<br />
-                                    System: {{equipment.system}}
-                                    {% for service in equipment.services %}
-                                        {% if service.isVisible %}
-                                            <div class="card">
-                                                <div class="card-header">{{ ThemedImage(service.icon) }} {{service.name}}</div>
-                                                <div class="card-body">
-                                                    Version: {{service.version}}<br />
-                                                    Entrypoint: {{service.entrypoint}}<br />
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
-                                    {% for device in equipment.devices %}
-                                        {% if device.isVisible %}
-                                            <div class="card">
-                                                <div class="card-header">{{ ThemedImage(device.icon) }} {{device.friendlyName}} {% if device.isConnected %}connected{% else %}disconnected{% endif %}</div>
-                                                <div class="card-body">
-                                                    <p class="card-text">
-                                                        Manufacture: {{device.manufacture}}<br />
-                                                        Model: {{device.model}}<br />
-                                                        System: {{device.system}}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
-                                </p>
-                            </div>
+        {% for equipment in foundEquipment %}
+            {% if equipment.isVisible %}
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            {{serviceClass}}<br />
+                            {{ ThemedImage(equipment.icon) }} {{equipment.friendlyName}} {% if equipment.isConnected %}connected{% else %}disconnected{% endif %}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Manufacture: {{equipment.manufacture}}<br />
+                                Model: {{equipment.model}}<br />
+                                System: {{equipment.system}}
+                                {% include 'Rabbaz/Core/App/Controller/View/Partials/Services.twig' with {'services': equipment.services} %}
+                                {% include 'Rabbaz/Core/App/Controller/View/Partials/Devices.twig' with {'devices': equipment.devices} %}
+                            </p>
                         </div>
                     </div>
-                {% endif %}
-            {% endfor %}
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 </div>
