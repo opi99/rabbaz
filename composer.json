@@ -26,6 +26,7 @@
         "fortawesome/font-awesome": "^6.3",
         "forward/forwardfw": "@dev",
         "kodus/chrome-logger": "^1.2",
+        "psr/event-dispatcher": "^1.0",
         "twbs/bootstrap": "^5.2",
         "twig/twig": "^3.0"
     },
@@ -36,7 +37,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Rabbaz\\Core\\": "src/Backend/Core"
+            "Rabbaz\\Core\\": "src/Backend/Core",
+            "Rabbaz\\Server\\": "src/Server"
         }
     },
     "autoload-dev": {
