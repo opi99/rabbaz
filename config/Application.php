@@ -6,7 +6,7 @@ $templaterConfig = (new ForwardFW\Config\Templater\Twig())
     ->setCompilePath(__DIR__ . '/../cache/')
     ->setTemplatePath(__DIR__ . '/../src/Frontend/Templates');
 
-return (new ForwardFW\Config\Runner())
+return (new ForwardFW\Config\Runner\HttpMiddlewareRunner())
     ->addService(
         (new \ForwardFW\Config\Service\Logger\ChromeLogger())
     )
