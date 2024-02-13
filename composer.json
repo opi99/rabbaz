@@ -16,9 +16,6 @@
     },
     "config": {
         "bin-dir": "bin",
-        "platform": {
-            "php": "8.2.0"
-        },
         "sort-packages": true
     },
     "require": {
