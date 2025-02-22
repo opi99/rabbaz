@@ -1,8 +1,7 @@
-version: '3.1'
 name: rabbaz
 services:
     web:
-        image: "webdevops/php-nginx-dev:8.3-alpine"
+        image: "webdevops/php-nginx-dev:8.4"
         container_name: rabbaz-web
         network_mode: host
         working_dir: /app
@@ -30,9 +29,9 @@ services:
             - ALSA_OUTPUT_ENABLED=yes
             - ALSA_OUTPUT_CREATE=yes
             - ALSA_OUTPUT_NAME=Local Device
-            - ALSA_OUTPUT_DEVICE=default:1
+            - ALSA_OUTPUT_DEVICE=hw:1
             - ALSA_OUTPUT_MIXER_CONTROL=Master
-            - ALSA_OUTPUT_MIXER_DEVICE=default:1
+            - ALSA_OUTPUT_MIXER_DEVICE=hw:1
             - ALSA_OUTPUT_MIXER_TYPE=hardware
         volumes:
             - ./data/Music:/music:ro

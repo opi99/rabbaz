@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5dda1889e30ea13b8d6643e2afa5d8b",
+    "content-hash": "5ac6a03c97fa95bc2e745dd89b972e50",
     "packages": [
         {
             "name": "fortawesome/font-awesome",
@@ -57,26 +57,28 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opi99/forwardfw.git",
-                "reference": "15fa22ea00726d4ce05eb08e7639bf0fb76df85d"
+                "reference": "b07cc7d94ea96ca5e3fa7c904f2863e3f0947f32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/15fa22ea00726d4ce05eb08e7639bf0fb76df85d",
-                "reference": "15fa22ea00726d4ce05eb08e7639bf0fb76df85d",
+                "url": "https://api.github.com/repos/opi99/forwardfw/zipball/b07cc7d94ea96ca5e3fa7c904f2863e3f0947f32",
+                "reference": "b07cc7d94ea96ca5e3fa7c904f2863e3f0947f32",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.2",
+                "php": "^8.4",
                 "psr/container": "^2.0",
                 "psr/event-dispatcher": "^1.0",
-                "psr/http-factory": "^1.0",
+                "psr/http-factory": "^1.1",
                 "psr/http-server-middleware": "^1.0",
                 "psr/log": "^1.1"
             },
             "require-dev": {
+                "itsgoingd/clockwork": "^5.3",
                 "kodus/chrome-logger": "^1.2",
-                "phpstan/phpstan": "^1.2",
-                "smarty/smarty": "^4.3"
+                "phpstan/phpstan": "^2.1",
+                "smarty/smarty": "^5.4",
+                "twig/twig": "^3.20.0"
             },
             "suggest": {
                 "firephp/firephp-core": "FirePHP - Logs to the FirePHP Devtools",
@@ -106,7 +108,7 @@
                 "issues": "https://github.com/opi99/forwardfw/issues",
                 "source": "https://github.com/opi99/forwardfw/tree/master"
             },
-            "time": "2024-02-11T16:51:51+00:00"
+            "time": "2025-02-21T12:19:02+00:00"
         },
         {
             "name": "kodus/chrome-logger",
@@ -269,20 +271,20 @@
         },
         {
             "name": "psr/http-factory",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35"
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/e616d01114759c4c489f93b099585439f795fe35",
-                "reference": "e616d01114759c4c489f93b099585439f795fe35",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0.0",
+                "php": ">=7.1",
                 "psr/http-message": "^1.0 || ^2.0"
             },
             "type": "library",
@@ -306,7 +308,7 @@
                     "homepage": "https://www.php-fig.org/"
                 }
             ],
-            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "description": "PSR-17: Common interfaces for PSR-7 HTTP message factories",
             "keywords": [
                 "factory",
                 "http",
@@ -318,9 +320,9 @@
                 "response"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-factory/tree/1.0.2"
+                "source": "https://github.com/php-fig/http-factory"
             },
-            "time": "2023-04-10T20:10:41+00:00"
+            "time": "2024-04-15T12:06:14+00:00"
         },
         {
             "name": "psr/http-message",
@@ -909,8 +911,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.4"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

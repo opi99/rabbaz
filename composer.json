@@ -19,7 +19,7 @@
         "sort-packages": true
     },
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "fortawesome/font-awesome": "^6.3",
         "forward/forwardfw": "@dev",
         "kodus/chrome-logger": "^1.2",
